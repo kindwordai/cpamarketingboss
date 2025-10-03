@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Tracker</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 10px;
+        }
+        .btn {
+            background-color: red;
+            color: white;
+            padding: 8px 15px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            background-color: darkred;
+        }
+        .confirm-btn {
+            background-color: yellow;
+            color: black;
+            padding: 12px 25px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .confirm-btn:hover {
+            background-color: gold;
+        }
+        .message {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .message.error {
+            color: red;
+        }
+        .message.success {
+            color: lime;
+        }
+    </style>
+</head>
+<body>
+    <div id="ads-container">
+        <div id="ads-buttons"></div>
+    </div>
+    <button class="confirm-btn" id="confirmBtn">Submit Clicks</button>
+    <div id="message" class="message"></div>
+
+    <script>
+        let clickedAds = 0;
+        const adsContainer = document.getElementById('ads-buttons');
+
+        for (let i = 1; i <= 30; i++) {
+            const btn = document.createElement('button');
+            btn.classList.add('btn');
+            btn.textContent = `Ads-${i}`;
+            btn.onclick = function() {
+                clickedAds++;
+                window.open("https://cbookshophouse.blogspot.com", "_blank");
+            };
+            adsContainer.appendChild(btn);
+        }
+
+        const confirmBtn = document.getElementById('confirmBtn');
+        confirmBtn.onclick = function() {
+            const message = document.getElementById('message');
+            if (clickedAds < 30) {
+                message.textContent = "(Clicking Failed)";
+                message.classList.add('error');
+                message.classList.remove('success');
+            } else {
+                message.textContent = "(Clicking Success)";
+                message.classList.add('success');
+                message.classList.remove('error');
+            }
+        };
+    </script>
+</body>
+</html>
