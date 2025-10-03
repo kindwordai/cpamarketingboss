@@ -62,7 +62,7 @@
         let clickedAds = 0;
         const adsContainer = document.getElementById('ads-buttons');
 
-        for (let i = 1; i <= 30; i++) {
+        for (let i = 1; i <= 20; i++) {
             const btn = document.createElement('button');
             btn.classList.add('btn');
             btn.textContent = `Ads-${i}`;
@@ -76,16 +76,17 @@
         const confirmBtn = document.getElementById('confirmBtn');
         confirmBtn.onclick = function() {
             const message = document.getElementById('message');
-            if (clickedAds < 30) {
+            if (clickedAds < 20) {
                 message.textContent = "(Clicking Failed)";
                 message.classList.add('error');
                 message.classList.remove('success');
             } else {
-                message.textContent = "(Clicking Success)";
+                message.textContent = "(Clicking Done)";
                 message.classList.add('success');
                 message.classList.remove('error');
             }
         };
     </script>
 </body>
+
 </html>
